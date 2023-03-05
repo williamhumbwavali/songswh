@@ -60,7 +60,7 @@ body {
 .img {
 	position: absolute;
 	width: 90%;
-	height: 50%;
+	height: calc(100% - 400px);
 	left: 5%;
 	border-radius: 20px;
 	top: 70px;
@@ -135,6 +135,7 @@ body {
     margin-bottom: 1px;
 	display: flex;
 }
+
 #containerMusica .item .mais-opc, #container-favoritos .item .mais-opc {
 	position: absolute;
 	right: 0;
@@ -178,19 +179,6 @@ body {
 	overflow: visible;
 	
 	
-}
-#containerMusica .musica-atual::before {
-	content: '';
-	position: absolute;
-	left: 2.5%;
-	width: 95%;
-	bottom: -10px;
-	border-radius: 20px;
-	background-color: white;
-	opacity: 0.7;
-	display: inline-block;
-	height: 100%;
-	z-index: -1;
 }
 #estado #proximo, #estado #anterior, #estado .pp, #estado .loop, #estado .aleatorio, .proximo, .anterior {
 	position: absolute;
@@ -512,7 +500,6 @@ input[type="checkbox"]:checked + label:active > i {
 .slider {
     position: absolute;
 	width: 98%;
-	overflow: hidden !important;
 	height: calc(100% - 240.5px);
 	display: flex;
 	top: 80px;
@@ -573,6 +560,9 @@ a:active {
 	overflow-y: auto;
 	overflow-x: hidden;
 	max-height: 100%;
+}
+#container-configuracao {
+	overflow: visible;
 }
 .musica-atual #titulo--musica-atual {
 	display: inline-block;
@@ -1103,6 +1093,7 @@ to {transform: translateX(0);}
 	#container-favoritos {
 		margin-left: 15px;
 	}
+	
 	#containerMusica h2 , #container-favoritos h2, #container-configuracao h2 {
 		margin: 0;
 	}
@@ -1141,7 +1132,6 @@ to {transform: translateX(0);}
 	#containerMusica .musica-atual {
 		background: #fff;
 		text-align: center;
-		/*box-shadow: 1em 1em 3em rgba(0 0 0/ 0.1);*/
 		border-radius: 0;
 		width: 300px;
 		height: 485px;
