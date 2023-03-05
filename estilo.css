@@ -1097,8 +1097,11 @@ to {transform: translateX(0);}
 		border: 0;
 		outline: 0;
 	}
-	#containerMusica , #container-favoritos, #container-configuracao {
+	#containerMusica , #container-configuracao {
 		padding-left: 30px;
+	}
+	#container-favoritos {
+		margin-left: 15px;
 	}
 	#containerMusica h2 , #container-favoritos h2, #container-configuracao h2 {
 		margin: 0;
