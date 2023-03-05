@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unbounded&display=swap');
+@font-face {
+  font-family: 'syne';
+  src: url(Syne-SemiBold.ttf);
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(Poppins-Regular.ttf);
+    font-weight: 400;
+    font-style: normal;
+  }
+  * {
+      font-family: 'Raleway';
+      font-family: 'Unbounded', 'Poppins', cursive;
+  }
