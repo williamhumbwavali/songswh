@@ -162,7 +162,7 @@ body {
 	display: none;
 }
 
-#containerMusica .musica-atual {
+.musica-atual {
 	width: 95%;
 	position: fixed;
 	bottom: 85px;
@@ -561,9 +561,6 @@ a:active {
 	overflow-x: hidden;
 	max-height: 100%;
 }
-#container-configuracao {
-	overflow: visible;
-}
 .musica-atual #titulo--musica-atual {
 	display: inline-block;
 	width: 50%;
@@ -767,7 +764,7 @@ a:active {
 		width: 80%;
 		left: 10%;
 	}
-	#containerMusica .musica-atual {
+	.musica-atual {
 		width: 80%;
 		left: 10%;
 
@@ -827,12 +824,12 @@ to {transform: translateX(0);}
 }
 
 
-#containerMusica i {
+.musica-atual i {
     font-size: 50px;
     margin-left: 0;
 }
-#containerMusica .play {
-    margin-left: 3px;
+.musica-atual .play {
+    margin-left: 2px;
 }
 
 .lyrics {
@@ -870,16 +867,11 @@ to {transform: translateX(0);}
 	color: black;
 	display: none;
 	text-align: center;
-	font-size: 17px !important;
-
 }
 
-#l-titulo, #l-artista {
-	text-transform: capitalize;
-}
+
 #l-titulo {
 	margin-top: 14px;
-	font-weight: bold;
 }
 #apr-inicio img {
 	width: 95%;
@@ -962,13 +954,13 @@ to {transform: translateX(0);}
 	height: 160px;
 	margin: 0;
 }
-#containerMusica #container-volume {
+.musica-atual #container-volume {
 	display: none;
 }
-#containerMusica .musica-atual #idD {
+.musica-atual #idD {
 	display: none;
 }
-#containerMusica .musica-atual #duracao {
+.musica-atual #duracao {
 	display: none;
 }
 
@@ -1124,7 +1116,7 @@ to {transform: translateX(0);}
 	#containerMusica .item:hover, #container-favoritos .item:hover {
 		color: #3829e0;
 	}
-	#containerMusica .musica-atual {
+	.musica-atual {
 		background: #fff;
 		text-align: center;
 		border-radius: 0;
@@ -1138,7 +1130,7 @@ to {transform: translateX(0);}
 		background-color: white;
 		border-radius: 1em;
 	}
-	#containerMusica #container-volume {
+	.musica-atual #container-volume {
 		position: absolute;
 		bottom: 25px;
 		left: 0;
@@ -1147,23 +1139,23 @@ to {transform: translateX(0);}
 		height: 30px;
 		display: block;
 	}
-	#containerMusica #container-volume input {
+	.musica-atual #container-volume input {
 		width: 50%;
 		margin-left: 25%;
 		margin-top: 18px;
 	} 
-	#containerMusica #container-volume i {
+	.musica-atual #container-volume i {
 		position: absolute;
 		top: 9px;
 		color: gray !important;
 	}
-	#containerMusica .musica-atual #idD {
+	.musica-atual #idD {
 		top: 330px;
 		width: 250px;
 		left: 25px;
 		display: block;
 	}
-	#containerMusica .musica-atual #duracao {
+	.musica-atual #duracao {
 		top: 300px;
 		width: 250px;
 		left: 25px;
