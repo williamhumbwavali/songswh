@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 		<meta name="description" content="Reprodutor de músicas">
 		<meta name="author"  content="William Humbwavali" >
 		<link rel="stylesheet" href="fontes/fonte.css">
@@ -18,8 +18,8 @@
 				<input maxLength="50" placeholder="Procurar por canções ou artistas"  id="pesquisar"  type="text">
 				<button style="display: none;" class="btn-cancelar">cancelar</button>
 			</div> 
-        		</div>
-			<nav class="nav" >
+        </div>
+		<nav class="nav" >
 			<div class="logo">
 				<a id="logo" href="" class="menu-link logo" >
 					<span>Songswh</span>
@@ -51,6 +51,29 @@
 		
 		<main class="corpo">
 
+			<div class="musica-atual" >
+				<div class="fundo-msa"><img width="100%"/></div>
+
+				<div class="anterior"><i class="bx bx-skip-previous"></i></div>
+				
+				<div class="pp" >
+					<i class="play bx bx-play"></i>
+				</div>
+				<div class="proximo"><i class="bx bx-skip-next"></i></div>
+				<div id="titulo--musica-atual" ></div>
+				<div id="idD" >
+					<div id="tempoAtual" >00:00</div>
+					<div id="duracaoFinal" >—</div>
+				</div>
+				<div id="duracao" ><input id="variedade"  class="range" type="range" min="0" max="100" value="100" step="1"  /></div>
+				<div id="container-volume">
+					<div id="minimo"><i class="bx bx-volume"></i></div>
+					<input id="volume"  class="range" type="range" min="0" max="100" value="100" step="1"  />
+					<div id="maximo"><i class="bx bx-volume-full"></i></div>
+				</div>
+				<div></div>
+			</div>
+
 		<div class="slider" >
 			<div id="containerMusica" class="containerMusica">
 				<h2 class="subtitulo letra" style="text-transform: none; margin: 0;">Letras</h2>
@@ -62,28 +85,7 @@
 					<button id="curtir" class="curtir">Curtir</button>
 				</div>
 				<h2 class="subtitulo musica" style="margin-left: 8px; text-transform: none;">Músicas</h2>
-				<div class="musica-atual" >
-                    <div class="fundo-msa"><img width="100%"/></div>
-
-					<div class="anterior"><i class="bx bx-skip-previous"></i></div>
-					
-					<div class="pp" >
-						<i class="play bx bx-play"></i>
-					</div>
-					<div class="proximo"><i class="bx bx-skip-next"></i></div>
-					<div id="titulo--musica-atual" ></div>
-					<div id="idD" >
-						<div id="tempoAtual" >00:00</div>
-						<div id="duracaoFinal" >—</div>
-					</div>
-					<div id="duracao" ><input id="variedade"  class="range" type="range" min="0" max="100" value="100" step="1"  /></div>
-					<div id="container-volume">
-						<div id="minimo"><i class="bx bx-volume"></i></div>
-						<input id="volume"  class="range" type="range" min="0" max="100" value="100" step="1"  />
-						<div id="maximo"><i class="bx bx-volume-full"></i></div>
-					</div>
-					<div></div>
-				</div>
+				
 				<div class="musicaIndex" id="musicaIndex"></div>
             </div>
 			
@@ -177,19 +179,18 @@
 				</div>
 				</div>
 				
-				<div class="containerLyrics">
+				<div class="recepienteLetrass">
 					<div id="fecharLyric"><i style="font-size: 35px;" class="bx bx-chevron-left"></i> </div>
-					<div id="l-titulo"></div>
-					<div id="l-artista"></div>
-					<div class="lyrics"></div>
+					<p id="l-titulo"></p>
+					<p id="l-artista"></p>
+					<p class="lyrics"></p>
 				</div>
 			</div>
 		</main>
-		
-		<!-- scripts -->
+
 		<script src="musicas.js"></script>
 		<script src="script.js"></script>
-		
+
             
 
 	</body>
