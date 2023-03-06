@@ -870,6 +870,7 @@ to {transform: translateX(0);}
 	color: black;
 	display: none;
 	text-align: center;
+	font-size: 17px !important;
 
 }
 
