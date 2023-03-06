@@ -1,1449 +1,195 @@
-@import url('https://fonts.googleapis.com/css2?family=Unbounded&display=swap');
-
-* {
-	box-sizing: border-box;
-	outline: 0;
-}
-			
-body {
-	overflow: hidden;
-	max-width: 100vw;
-	max-height: 100vh;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	background-color: #f6f7f8;
-}
-
-
-#estado {
-	position: fixed;
-	bottom: 10px;
-	width: 95%;
-	left: 2.5%;
-	height: 30%;
-}
-
-
-.card {
-	padding: 20px;
-	height: 65%;
-	color: black;
-	box-sizing: border-box;
-	overflow: hidden;
-       transition: all 1s ease-out;
-}
-
-#duracao, #duracao2 {
-	width: 95%;
-	max-height: 10px;
-	height: 10px;
-	position: absolute;
-	top: 5%;
-	left: calc((100% - 95%) / 2);
-	max-width: 100%;
-}
-#idD, #idD2 {
-	position: absolute;
-	top: 20%;
-	width: 95%;
-	font-size: 14px;
-	left: calc((100% - 95%) / 2);
-}
-#tempoAtual, #tempoAtual2 {
-	float: left;
-	font-weight: bold;
-}
-#duracaoFinal, #duracaoFinal2 {
-	float: right;
-	font-weight: bold;
-}
-.img {
-	position: absolute;
-	width: 90%;
-	height: 41.5%;
-	left: 5%;
-	border-radius: 20px;
-	top: 45px;
-	overflow: hidden;
-
-}
-.img img {
-	border-radius: 20px;
-}
-
-.musica-atual-tela-cheia.modo-escuro-ativo .img {
-    border: 10px solid rgb(50, 50, 50);
-}
-#info-f {
-	font-weight: bold;
-	font-size: 20px;
-	margin-top: 100px;
-}
-
-.img img {
-	width: 100%;
-	height: auto;
-}
-.card .titulo {
-	position: absolute;
-	display: inline-block;
-	text-align: center;
-	width: 75%;
-	left: calc((100% - 75%) / 2);
-	height: 70px;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-	top: 52%;
-	font-weight: bold;
-	text-transform: capitalize;
-}
-@keyframes abrir {
-	from {transform: translateY(100%);}
-	to {transform: translateY(0);}
-}
-.musica-atual-tela-cheia {
-	position: fixed;
-	z-index: 60000;
-	left: 0;
-	top: 0;
-	overflow: hidden;
-	width: 100%;
-	height: 100%;
-	text-align: center;
-	background-color: rgb(240, 240, 245);
-	display: none;
-	color: black;
-	transition: transform .27s ease, opacity .27s ease;
-	transform: translateY(100%);
-	background: white;
-	background-color: #f6f7f8;
-}
-.barra {
-	width: 40px;
-	height: 3px;
-	border-radius: 20px;
-	display: inline-block;
-	background-color: grey;
-}
-#containerMusica .item, #container-favoritos .item {
-	width: 100%;
-	padding: 10px;
-	height: 50px;
-	font-size: 15px;
-	position: relative;
-    margin-bottom: 1px;
-	display: flex;
-}
-
-#containerMusica .item .mais-opc, #container-favoritos .item .mais-opc {
-	position: absolute;
-	right: 0;
-	top: calc((100% - 25px) / 2);
-}
-#containerMusica .item .mais-opc i, #container-favoritos .item .mais-opc i {
-	font-size: 25px;
-	color: #e8ecef;
-}
-
-#containerMusica {
-	overflow: hidden;
-}
-
-#containerMusica #musicaIndex {
-	overflow-y: scroll;
-}
-
-@keyframes abrirMA {
-       from{bottom: -100px;}
-       to {bottom: 0;}
-}
-#container-favoritos, #container-configuracao {
-	display: none;
-}
-
-#containerMusica .musica-atual {
-	width: 95%;
-	position: fixed;
-	bottom: 85px;
-	left: 2.5%;
-	padding: 15px;
-	height: 70px;
-	font-size: 16px;
-	border-radius: 20px;
-	background-color: white;
-	color: black;
-    display: block;
-   	z-index: 100;
-	transition: transform .25s;
-	overflow: visible;
-	
-	
-}
-#estado #proximo, #estado #anterior, #estado .pp, #estado .loop, #estado .aleatorio, .proximo, .anterior {
-	position: absolute;
-	bottom: 35%;
-    border-radius: 50%;
-   	width: 65px;
-	height: 65px;
-}
-#estado #proximo i, #estado #anterior i {
-	margin-left: calc((100% - 55px) / 2);
-}
-
-.pp i {
-    margin-left: 2px;
-   	font-size: 50px;
-   	margin-top: calc((100% - 50px) / 2);
-}
-
-#estado .pp {
-	left: calc((100% - 62.5px) / 2);
-	background-color: blue;
-	width: 62.5px;
-	border-radius: 1em;
-	color: white;
-	font-weight: bold;
-}
-#estado .pp i {
-	margin-top: calc((100% - 47px) / 2);
-}
-#estado .pp:hover {
-	background-color: hsl(245, 75%, 70%);
-	cursor: pointer;
-}
-#estado #proximo i, #estado #anterior i  {
-       font-size: 55px;
-       margin-top: calc((100% - 60px) / 2);
-}
-#proximo {
-	right: 20%;
-    text-align: left !important;
-
-}
-#anterior {
-	left: 20%;
-}
-.aleatorio, .loop {
-	position: absolute;
-	bottom: 20%;
-	font-size: 35px;
-	width: 65px;
-	height: 65px;
-}
-.loop i, .aleatorio i {
-	font-size: 30px;
-    margin-top: calc((100% - 30px) / 2);
-	display: none;
-}
-
-#container-configuracao h2 {
-	margin-left: 15px;
-}
-
-.aleatorio {
-	left: 10%;
-}
-.loop {
-	right: 10%;
-
-}
-
-.pp .play {
-	margin-left: 5px;
-}
-.sem-transicao {
-	transition: none !important;
-}		
-input[type="range"] {
-	width: 100%;
-	-webkit-appearance: none;
-	
-}
-input[type="range"]:hover {
-	cursor: pointer;
-}
-			
-input[type="range"]:focus {
-	outline: none;
-}
-			
-input[type="range"] + label {
-	position: absolute;
-	top: -25px;
-	left: 110px;
-	width: 80px;
-	padding: 5px 0;
-	text-align: center;
-	border-radius: 4px;
-}
-			
-/* Chrome e Safari */
-input[type="range"]::-webkit-slider-runnable-track {
-	background: rgb(211, 211, 240);
-	border-radius: 20px;
-	width: 100%;
-	height: 7px;
-	border: none;
-}
-			
-input[type="range"]::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	height: 12px;
-	width: 12px;
-	background: blue;
-	border-radius: 50px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	margin-top: -3px;
-    border: none;
-	cursor: pointer;
-}
-			
-/* Firefox */
-input[type="range"]::-moz-range-track {
-	background: rgb(211, 211, 240);
-	border-radius: 20px;
-	width: 100%;
-	height: 10px;
-	border: none;
-}
-			
-input[type="range"]::-moz-range-thumb {
-	-webkit-appearance: none;
-	height: 10px;
-	width: 10px;
-	background: blue;
-	border-radius: 50px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	margin-top: 0px;
-    border: none;
-	cursor: pointer;
-}
-.musica-atual-tela-cheia #rolagem {
-	margin-bottom: 10px;
-	height: 30px; 
-}
-.area-pesquisa {
-	width: 100%;
-}
-#area-de-rolagem {
-	width: 100%;
-	overflow: hidden;
-	background: ghostWhite;
-	height: 35%;
-	background-color: transparent;
-}
-
-
-#pesquisar {
-	width: 95%;
-	border-radius: 50px;
-	margin-left: 2.5%;
-	outline: 0;
-	padding: 10px;
-	background: white url("imagem/procura.PNG") no-repeat 15px 50%;
-	background-size: 10px 10px;
-	text-indent: 25px;
-	border: none;
-	margin-bottom: 10px;
-	margin-top: 10px;
-	display: inline-block;
-	height: 50px;
-	border-radius: 0.3em;
-}
-#pesquisar.modo-escuro {
-	background: rgb(70, 70, 70) url("imagem/pesquisa.PNG") no-repeat 15px 50%;
-	background-size: 10px 10px;
-	color: white;
-}
-.marca {
-	color: mediumSpringGreen;
-}
-
-.nav {
-	position: absolute;
-    bottom: 0;
-	left: 0;
-	padding: 0;
-	border: none;
-	overflow: hidden;
-	width: 100%;
-    z-index: 100;
-
-}
-.nav i {
-     font-size: 20px;
-}
-.nav svg {
-	margin-top: -3px;
-}
-.nav a {
-	padding: 5px;
-	display: inline-block;
-	height: 100%;
-	width: 100%;
-	
-}
-.nav a:active, .nav a:focus {
-	background: none;
-}
-.nav div {
-	width: 33.33%;
-	float: left;
-	text-align: center;
-	height: 100%;
-	font-size: 11px;
-	padding: 10px;
-	border-radius: 0;
-	overflow: hidden;
-}
-.nav div span {
-	display: inline-block;
-	width: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	
-}
-
-#container-configuracao div {
-	border-bottom: 0.7px solid rgba(200, 200, 200, 0.2);
-	padding: 15px;
-	height: 50px;
-	width: 100%;
-}
-#container-configuracao .opcao {
-	float: right;
-	color: gray;
-	display: inline-block;
-}
-#container-configuracao label {
-	display: inline-block;
-	width: 54px;
-	height: 32px;
-	border-radius: 100px;
-	transition: all 0.1s ease-in-out;
-	background: rgb(200, 200, 200);
-}
-	
-input[type="checkbox"] {
-	display: none;
-}
-	
-label > i {
-	height: 28px;
-	width: 28px;
-	background: #ffffff;
-	display: inline-block;
-	border-radius: 100px;
-	margin-top: 2px;
-	margin-left: 2px;
-	transition: all 0.2s ease-in-out;
-	pointer-events: none;
-	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-}
-.nav img {width: 25px;}
-	
-label:hover > i {
-	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.20);
-	transform: scale(1.01);
-}
-	
-input[type="checkbox"]:checked+label > i {
-	margin-left: 24px;
-}
-	
-label:active > i {
-	width: 34px;
-	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.20);
-}
-	
-input[type="checkbox"]:checked + label:active > i {
-	margin-left: 18px;
-}
-	
-#container-configuracao input[type="checkbox"]:checked + label {
-	background-color: rgb(10, 250, 50);
-}
-#modo-escuro .opcao  {
-	float: none;
-	position: absolute;
-	top: 57px;
-	right: 10px;
-}
-#modo-escuro {
-	position: relative;
-}
-#idioma select {
-	background: none;
-	border: none;
-	outline: 0;
-	color: gray;
-}
-@keyframes inicio {
-	from {transform: translateX(100%);}
-	to {transform: translateX(0);}
-}
-@keyframes fim {
-	to {transform: translateX(100%)}
-}
-
-#container-favoritos span {
-	display: inline-block;
-	width: 200px;
-	position: absolute;
-	top: 20%;
-	left: calc((100% - 200px) / 2);
-	text-align: center;
-    transition: all .27s ease;
-}
-.slider {
-    position: absolute;
-	width: 98%;
-	height: calc(100% - 240.5px);
-	display: flex;
-	top: 80px;
-	left: 1;
-	flex-direction: row;
-}
-.slider > div {
-	flex: 0 0 100%;
-	margin: 0;
-	position: relative;
-    display: block;
-    overflow: hidden;
-}
-.barra {
-	display: inline-block;
-}
-a {
- 	text-decoration: none;
- 	color: inherit;
-}
-a:active {
-	background: aliceBlue;
-}
-.desativado {
-	pointer-events: none;
-	opacity: 0.2;
-}
-.artista {
-	color: hsl(224, 23%, 55%);
-    pointer-events: none;
-	text-transform: capitalize;
-}
-.opcoes {
-	position: absolute;
-	top: 20px;
-	right: 5px;
-	width: 30px;
-	height: 30px;
-	text-align: center;
-}
-#containerMusica .item#ativo  {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	color: blue;
-	border-radius: 20px;
-	
-}
-#containerMusica .item svg {
-	color: black;
-}
-.corpo {
-	transition: opacity .27s ease;
-}
-
-#containerMusica, #container-configuracao, #container-favoritos {
-	text-align: left;
-	overflow-y: auto;
-	overflow-x: hidden;
-	max-height: 100%;
-}
-#container-configuracao {
-	overflow: visible;
-}
-.musica-atual #titulo--musica-atual {
-	display: inline-block;
-	width: 50%;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	position: absolute;
-	top: 15px;
-	left: 80px;
-	text-transform: capitalize;
-}
-.musica-atual .pp, .musica-atual .fundo-msa {
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	background: ghostWhite;
-	border-radius: 50%;
-	text-align: center;
-	position: absolute;
-	top: 10px;
-    right: 10px;
-	overflow: hidden;
-}
-.musica-atual .pp {
-	background-color: blue;
-	width: 50px;
-	border-radius: 1em;
-	color: white;
-	font-weight: bold;
-	line-height: 48px;
-}
-
-.musica-atual .fundo-msa {
-       left: 10px;
-       border-radius: 10px;
-       width: 60px;
-}
-
-.musica-atual .pp svg {
-	width: 30px;
-	height: 30px;
-	margin-top: calc((100% - 30px) / 2);
-}
-
-::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
-}
- 
-::-webkit-scrollbar-track {
-    background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: transparent; 
-}
-.modo-escuro-ativo {
-	background-color: rgb(50, 50, 50) !important;
-	color: white !important;
-}
-.musica-atual.modo-escuro-ativo {
-       background-color: rgb(60, 60, 60) !important;
-}
-
-#container-volume, #container-volume2 {
-	position: absolute;
-	bottom: 20px;
-	left: 0;
-	width: 100%;
-	text-align: left;
-	height: 30px;
-}
-#container-volume input, #container-volume2 input {
-	width: 70%;
-	margin-left: 15%;
-	margin-top: 14px;
-} 
-#container-volume i, #container-volume2 i {
-	position: absolute;
-	top: 9px;
-    color: gray !important;
-}
-#maximo i, #maximo2 i {
-	right: 9%
-}
-#minimo i, #minimo2 i {
-	left: 9%;
-}
-.btn-cancelar {
-	background: none;
-	outline: 0;
-	border: none;
-	display: none;
-	height: 30px;
-	width: 20%;
-	border-radius: 50px;
-	color: mediumslateblue;
-}
-.musica-atual-tela-cheia.modo-escuro-ativo input[type="range"]::-webkit-slider-runnable-track {
-	background: rgb(60, 60, 60);	
-}	
-.musica-atual-tela-cheia.modo-escuro-ativo input[type="range"]::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	background: rgb(80, 80, 80);
-}
-.musica-atual-tela-cheia.modo-escuro-ativo #area-de-rolagem {
-    background: rgb(70, 70, 70);
-}
-
-#fechar-TC {
-    position: absolute;
-    top: 0px;
-    left: 5%;
-    overflow: hidden;
-}
-#abrirLyric {
-   font-size: 20px;
-    height: 30px;
-    width: 70px;
-    position: absolute;
-    top: 12px;
-    right: 5%;
-    overflow: hidden;
-	display: block;
-}
-
-#fecharLyric {
-
-    height: 35px;
-    width: 35px;
-    position: absolute;
-    top: 13px;
-    left: 10px;
-    overflow: hidden;
-
-}
-
-.add-f {
-    position: absolute;
-    bottom: 31%;
-    left: calc((100% - 200px) / 2);
-	color: blue;
-	width: 200px;
-	font-weight: bold;
-}
-
-#estado-da-musica > div i {
-   font-size: 35px;
-}
-.loop-1 {
-   width: 15px;
-   height: 15px;
-   border-radius: 50px;
-   display: inline-block;
-   font-size: 9px;
-   background: black;
-   color: white;
-   padding: 2px;
-   margin: -13px;
-}
-.verdade {
-   color: mediumslateblue !important;
-}
-
-@media screen and (orientation: landscape) {
-       #estado {
-         height: 48%;
-		 bottom: -20px;
-       }
-       .img {
-		top: 40px;
-		width: 125px;
-		height: 125px;
-		border-radius: 0;
-		left: 60px;
-		border-radius: 0.3em;
-       }
-       .add-f {
-          display: none;
-         
-       }
-       .card .titulo {
-           top: 35.5%;
-		   text-align: left;
-		   left: 200px;
-        }
-       
-      #proximo {
-         right: 30%;
-      }
-      #anterior {
-         left: 30%;
-      }
-	.nav {
-		left: 10%;
-		width: 80%;
+<!DOCTYPE html>
+<html lang="pt">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+		<meta name="description" content="Reprodutor de músicas">
+		<meta name="author"  content="William Humbwavali" >
+		<link rel="stylesheet" href="fontes/fonte.css">
+		<link rel="stylesheet" href="estilo.css">
 		
-	}
-
-	.slider {
-		width: 80%;
-		left: 10%;
-	}
-	#containerMusica .musica-atual {
-		width: 80%;
-		left: 10%;
-
-	}
-	#pesquisar {
-		width: 80%;
-		margin-left: 9.5%;
+		<title>Songs</title>
+	</head>
+	<body>
 		
+		<div id="container-pesquisa"> 
+			<div class="area-pesquisa" >
+				<input maxLength="50" placeholder="Procurar por canções ou artistas"  id="pesquisar"  type="text">
+				<button style="display: none;" class="btn-cancelar">cancelar</button>
+			</div> 
+        </div>
+		<nav class="nav" >
+			<div class="logo">
+				<a id="logo" href="" class="menu-link logo" >
+					<span>Songswh</span>
+				</a>
+			</div>
+				
+			<div class="navMusica mdn" >
+					<a href="#" class="menu-link inicio esta-ativo">
+						<i class="bx bx-home-alt icon"></i>
+						<span>Início</span>
+					</a>
+				</div>
+			
+				<div class="navFavorito mdn" >
+					<a href="#" class="menu-link favoritos">
+						<i class="bx bx-heart icon"></i>
+						<span>Curtidas</span>
+					</a>
+				</div>
+				
+				<div class="navConf mdn" >
+					<a href="#" class="menu-link cofg">
+						<i class="bx bx-cog icon"></i>
+						<span>Ajustes</span>
+					</a>
+				</div>
+			
+			</nav>
 		
-	}
-}
-.comeco {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    background: white;
-    z-index: 10000;
-    top: 0;
-}
-@keyframes comeco {
-   from {transform: translateX(100%);}
+		<main class="corpo">
 
-to {transform: translateX(0);}
+		<div class="slider" >
+			<div id="containerMusica" class="containerMusica">
+				<h2 class="subtitulo letra" style="text-transform: none; margin: 0;">Letras</h2>
+				<div class="containerInfo">
+					<h3 id="tituto-letra">--</h3>
+					<h4 id="artista-letra">--</h4>
+					<h5 style="font-family: 'Syne';" id="letra-ex">Nenhuma letra encontrada</h5>
+					<button class="traduzir">Traduzir</button>
+					<button id="curtir" class="curtir">Curtir</button>
+				</div>
+				<h2 class="subtitulo musica" style="margin-left: 8px; text-transform: none;">Músicas</h2>
+				<div class="musica-atual" >
+                    <div class="fundo-msa"><img width="100%"/></div>
 
-}
-.fundo-item {
-   width: 62px;
-   overflow: hidden;
-   border-radius: 10px;
-}
-.fundo-item img {
-   width: 100%;
-} 
-.numero {
-	line-height: 60px;
-	width: 30px;
-	color: gray;
-}
-.titulo-artista {
-   white-space: nowrap; 
-   overflow: hidden;
-   margin-left: 10px;
-   margin-top: 10px;
-   text-transform: capitalize;
-}
+					<div class="anterior"><i class="bx bx-skip-previous"></i></div>
+					
+					<div class="pp" >
+						<i class="play bx bx-play"></i>
+					</div>
+					<div class="proximo"><i class="bx bx-skip-next"></i></div>
+					<div id="titulo--musica-atual" ></div>
+					<div id="idD" >
+						<div id="tempoAtual" >00:00</div>
+						<div id="duracaoFinal" >—</div>
+					</div>
+					<div id="duracao" ><input id="variedade"  class="range" type="range" min="0" max="100" value="100" step="1"  /></div>
+					<div id="container-volume">
+						<div id="minimo"><i class="bx bx-volume"></i></div>
+						<input id="volume"  class="range" type="range" min="0" max="100" value="100" step="1"  />
+						<div id="maximo"><i class="bx bx-volume-full"></i></div>
+					</div>
+					<div></div>
+				</div>
+				<div class="musicaIndex" id="musicaIndex"></div>
+            </div>
+			
+			<div id="container-favoritos">
+				<span id="info-f">Sem músicas</span>
+			</div> 
+                   
+			<div id="container-configuracao" class="container-configuracao" >	
+				<h2 class="subtitulo f-i">Idioma</h2>					
+				 
+				<div style="display: none;" id="modo-escuro" >
+					<span class="titulo--difinicao" >Modo escuro</span>
+					<span class="opcao opc-modo" >
+						<input type="checkbox" id="i">
+						<label for="i"><i></i></label>
+					</span>
+				</div>
 
-#containerMusica .item , #container-favoritos .item, .container-musicas-artista .item {
-   overflow: hidden;
-   height: 60px;
-	
-}
-
-#containerMusica .item , #container-favoritos .item {
-	width: 100%;
-	height:  80px;
-}
-
-
-#containerMusica i {
-    font-size: 50px;
-    margin-left: 0;
-}
-#containerMusica .play {
-    margin-left: 3px;
-}
-
-.lyrics {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	z-index: 99999999999;
-	/*background: rgb(192, 82, 82);*/
-	display: block;
-	width: 100%;
-	height: calc(100% - 100px);
-	color: black;
-	background: #feffff;
-	text-align: center;
-	overflow: auto;
-	border-radius: 40px 40px 0 0;
-	padding: 15px;
-	background-image: url('imagem/msc.png');
-  	background-repeat: no-repeat;
-  	background-attachment: fixed;
-  	background-position: left bottom;
-	background-size: 100% auto;
-	font-weight: 400;
-	padding-top: 20px;
-}
-.containerLyrics {
-	position: absolute;
-	left: 0;
-	top: 0;
-	z-index: 99999999999999999;
-	background-color: #f6f7f8;
-	display: block;
-	width: 100%;
-	height: 100%;
-	color: black;
-	display: none;
-	text-align: center;
-	font-size: 17px !important;
-
-}
-
-#l-titulo, #l-artista {
-	text-transform: capitalize;
-}
-#l-titulo {
-	margin-top: 14px;
-	font-weight: bold;
-}
-#apr-inicio img {
-	width: 95%;
-	margin: 2.5%;
-	border-radius: 30px;
-}
-
-.esta-ativo, .marca {
-	color: blue;
-}
-#tn {
-	width: 150px;
-	height: 30px;
-	border-radius: 0.3em;
-	border: none;
-	background-color: mediumslateblue;
-	color: white;
-	margin-top: 10px;
-}
-
-.logo {
-	display: none;
-	
-}
-.containerInfo {
-	margin-left: 0;
-	width: 99%;
-	height: 400px;
-	color: black;
-}
-
-.nav {
-	background-image: none;
-	overflow: hidden;
-	box-sizing: content-box;
-	padding: 0;
-	margin: 0;
-}
-.nav div {
-	font-weight: bold;
-	font-size: 13px;
-	text-align: center;
-	height: 100%;
-	color: rgb(77, 71, 71);
-}
-.nav a {
-	border-radius: 1em;
-	padding: 8px;
-}
-.esta-ativo {
-	display: inline-block;
-	transition: none;
-	font-weight: 600;
-	color: blue;
-	border: none;
-}
-.nav a:not(.logo):hover {
-	color: blue;
-}
-.containerInfo {
-	height: 300px;
-	overflow: hidden;
-	padding-top: 5px;
-	display: block;
-	margin-top: 10px;
-	border-radius: 20px;
-	display: none;
-}
-.subtitulo.letra {
-	display: none;
-}
-.subtitulo.musica {
-	display: none;
-}
-.musica-atual .proximo, .musica-atual .anterior {
-	display: none;
-}
-.containerInfo h5 {
-	overflow-y: scroll;
-	height: 160px;
-	margin: 0;
-}
-#containerMusica #container-volume {
-	display: none;
-}
-#containerMusica .musica-atual #idD {
-	display: none;
-}
-#containerMusica .musica-atual #duracao {
-	display: none;
-}
-
-
-@media screen and (min-width: 950px) {
-	.nav {
-		width: 240px;
-		height: 100%;
-		left: 0;
-		background-image: none;
-		background-color: #F5F7F9;
-		overflow: hidden;
-		padding: 10px;
-		border-right: 1px solid rgb(236, 231, 231);
-		background-color: blue;
-		background-color: #e8ecef;
-	}
-	#abrirLyric {
-		display: none;
-	}
-	.img {
-		top: 70px;
-		width: 420px;
-		height: 420px;
-		border-radius: 0;
-		left: calc((100% - 420px) / 2);
-		border-radius: 0.3em;
-	}
-	.nav div span {
-		font-size: 17px;
-		margin-left: 25px;
-		line-height: 25px;
-		display: inline-block;
-		height: 40px;
-	}
-	.nav div {
-		width: 100%;
-		font-weight: bold;
-		height: 70px;
-		text-align: left;
-		font-size: 13px;
-		text-align: center;
-		float: none;
-		text-align: left;
-		color: rgb(236, 227, 227);
-		border-radius: 0;
-		color: #54575c;
-		overflow: visible;
-		position: relative;
-	}
-	.nav a {
-		display: flex;
-		padding: 15px 40px 15px 40px;
-		border-radius: 1em;
-	}
-	.nav .esta-ativo {
-		padding: 15px 40px 15px 40px;
-		color: black;
-		transition: none;
-		font-weight: 600;
-		border: none;
-		background: none;
-		font-weight: bold;
-		color: blue;
-	}
-	#fechar-TC {
-		left: 20%;
-	}
-	.esta-ativo::after {
-		content: '';
-		width: 2px;
-		height: 50%;
-		background-color: blue;
-		position: absolute;
-		right: -10px;
-		top: 25%;
-	}
-	.nav a:not(.logo):hover {
-		color: #3829e0;
-	}
-	.logo {
-		display: block;
-		margin-bottom: 30px;
-		color: black;
-		height: 100px;
-		text-align: left;
-		margin-top: 5px;
-		color: white;
-		color: black;
-	}
-	nav .logo span {
-		font-size: 23px;
-		margin-left: 0;
-	}
-	.area-pesquisa {
-		position: absolute;
-		left: 335px;
-		top: 0px;
-		width: 40%;
-	}
-	#pesquisar {
-		margin-left: 0;
-		margin-top: 10px;
-		width: 100%;
-		border: none;
-		border-radius: 0;
-		height: 50px;
-		border-radius: 0.3em;
-	}
-	#pesquisar:focus {
-		border: 0;
-		outline: 0;
-	}
-	#containerMusica , #container-configuracao {
-		padding-left: 30px;
-	}
-	#container-favoritos {
-		margin-left: 15px;
-	}
-	
-	#containerMusica h2 , #container-favoritos h2, #container-configuracao h2 {
-		margin: 0;
-	}
-	#container-configuracao div span {
-		text-transform: none;
-		color: rgb(77, 74, 74);
-		margin-left: 0;
-		font-weight: normal;
-	}
-	#container-configuracao h2 {
-		text-transform: none;
-	}
-	#container-configuracao div {
-		height: 55px;
-		margin-left: 0;
-		padding-left: 0;
-		position: relative;
-		font-weight: normal;
-		overflow: hidden;
-	}
-
-	#containerMusica .item, #container-favoritos .item {
-		margin-left: 0;
-		font-weight: bold;
-		cursor: pointer;
-		transition: 0.25s;
-		width: 75%;
-		border-radius: 20px;
-	}
-	#container-configuracao .informacoes {
-		display: none;
-	}
-	#containerMusica .item:hover, #container-favoritos .item:hover {
-		color: #3829e0;
-	}
-	#containerMusica .musica-atual {
-		background: #fff;
-		text-align: center;
-		border-radius: 0;
-		width: 300px;
-		height: 485px;
-		right: 5%;
-		left: initial;
-		bottom: 40px;
-		border-radius: 20px;
-		background-color: transparent;
-		background-color: white;
-		border-radius: 1em;
-	}
-	#containerMusica #container-volume {
-		position: absolute;
-		bottom: 25px;
-		left: 0;
-		width: 100%;
-		text-align: left;
-		height: 30px;
-		display: block;
-	}
-	#containerMusica #container-volume input {
-		width: 50%;
-		margin-left: 25%;
-		margin-top: 18px;
-	} 
-	#containerMusica #container-volume i {
-		position: absolute;
-		top: 9px;
-		color: gray !important;
-	}
-	#containerMusica .musica-atual #idD {
-		top: 330px;
-		width: 250px;
-		left: 25px;
-		display: block;
-	}
-	#containerMusica .musica-atual #duracao {
-		top: 300px;
-		width: 250px;
-		left: 25px;
-		display: block;
-	}
-	#area-de-rolagem {
-		height: 50%;
-		background-color: transparent;
-	}
-	#estado {
-		height: 30%;
-		width: 60%;
-		left: 20%;
-	}
-	.musica-atual .fundo-msa {
-		width: 80%;
-		height: 295px;
-		height: 200px;
-		top: 25px;
-		border-radius: 40px;
-		left: 10%;
-		border-radius: 1em;
-	}
-	.barra {
-		display: none;
-	}
-	.musica-atual #titulo--musica-atual {
-		top: 250px;
-		font-weight: bold;
-		width: 95%;
-		left: 2.5%;
-	}
-	.musica-atual .pp {
-		top: 360px;
-		right: 125px;
-		background-color: blue;
-		width: 50px;
-		border-radius: 1em;
-		color: white;
-		font-weight: bold;
-		line-height: 50px;
-	}
-
-	.musica-atual .proximo, .musica-atual .anterior {
-		top: 360px;
-		display: block;
-		cursor: pointer;
-	}
-	.musica-atual .proximo:hover, .musica-atual .anterior:hover {
-		opacity: 0.7;
-	}
-	.musica-atual .proximo {
-		right: 55px;
-	}
-	.musica-atual .anterior {
-		left: 55px;
-	}
-	.musica-atual:hover {
-		transform: scale(1.02);
-	}
-	.musica-atual .pp:hover {
-		background-color: hsl(245, 75%, 70%);
-		cursor: pointer;
-	}
-	.slider {
-		height: calc(100% - 70px);
-		width: 82.5%;
-		margin-left: 120px;
-	}
-	.containerInfo {
-		background-size: 500px auto;
-		background-repeat: no-repeat;
-		background-position: bottom 0 right -25px;
-		height: 400px;
-		overflow: hidden;
-		color: white;
-		padding: 0;
-		display: inline-block;
-		width: 550px;
-		border-radius: 20px;
-		background-color: transparent;
-		position: relative;
-		color: black;
-		margin-left: 0;
-		border-radius: 0;
-		width: 100%;
-		margin-top: 0;
-		position: relative;
-		display: block;
-	}
-	.subtitulo.letra {
-		display: block;
-	}
-	.subtitulo.musica {
-		display: block;
-	}
-	.containerInfo h3 {
-		text-transform: capitalize;
-		font-size: 35px;
-		margin-bottom: 0;
-		margin: 0;
-	}
-	#containerMusica #musicaIndex {
-		overflow-y: scroll;
-		max-height: calc(100% - 470px);
-	}
-	select, input[type=checkbox] + label {
-		cursor: pointer;
-	}
-	.containerInfo h4 {
-		margin: 0;
-		color: black;
-		text-transform: capitalize;
-		font-weight: 500;
-	}
-	
-	.containerInfo h5 {
-		height: 247px;
-		font-weight: normal;
-		font-size: 17px;
+				<div id="idioma" >
+					<span class="titulo--difinicao" >Idioma</span>
+					<span class="opcao" >
+						<select name="idioma" >
+							<option value="pt" >pt-BR</option>
+							<option value="en" >en-US</option>
+						</select>
+					</span>
+				</div>
 		
-	}
-	
-	#proximo {
-		right: 38%;
-		text-align: left !important;
-		cursor: pointer;
-	}
-	#anterior {
-		left: 38%;
-		cursor: pointer;
-	}
-	.card .titulo {
-		top: 62%;
-		font-weight: bold;
-		text-align: center;
-		left: 0;
-		width: 100%;
-	}
-	.add-f {
-        bottom: 42%;
-		cursor: pointer;
-		display: inline-block;
-	}
-	#maximo i {
-		right: 12%
-	}
-	#minimo i {
-		left: 12%;
+				<div style="border: 0;"></div>
+
+				<h2 class="subtitulo sobre">Sobre</h2>
+				<div id="dev">
+					<span id="dev-n">Criador</span>
+					<span class="opcao">William Humbwavali</span>
+				</div>
+				<div class="sem-borda" id="insta">
+					<a target="_blank" href="http://instagram.com/williamhumbwavali">	
+						<span id="dev-i">Meu Instragram</span> 
+						<span class="opcao"> 
+							<svg width="20" height="20" fill="gray"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272 512"><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg>	
+						</span>	
+					
+					</a> 
+				</div>
+				
+				
+			</div>
+			
+		</div>
 		
-	}
-	#minimo i, #maximo i {
-		font-size: 25px;
-		top: 6px;
-	}
-	#informacoes #i-info {
-		background: white;
-	   border-radius: 10px;
-	   width: 60%;
-	   margin-top: 40px;
-	   margin-left: 20%;
-	}
-	
-	#informacoes #i-info div{
-		padding: 15px;
-		height: 50px;
-		text-align: left;
-		width: 100%;
-	
-	}
-	.subtitulo {
-		font-size: 20px;
-		font-weight: 550;
-	}
-	
-	#informacoes #i-info div:not(.sem-borda) {
-			border-bottom: 0.7px solid rgba(200, 200, 200, 0.2);
-	}
-	
-	#informacoes span {
-		float: right;
-		color: gray;
-		font-weight: bold;
-	}
-	.btn-cancelar {
-		background: none;
-		outline: 0;
-		border: none;
-		display: none;
-		height: 30px;
-		width: 20%;
-		border-radius: 50px;
-		color: mediumslateblue;
-	}
-	.fechar-informacoes {
-			padding: 10px 35px 10px 35px;
-			transition: none;
-			font-weight: 600;
-			background-color: hsl(245, 75%, 52%);
-			border: none;
-			border-radius: 1em;
-			margin-top: 10px;
-			box-sizing: content-box;
-			color: white;
-		
-			position: absolute;
-			top: 12px;
-			left: 20%;
-			border: none !important;
-			cursor: pointer;
-	}
-	.containerInfo h4, .containerInfo h3, .containerInfo h5 {
-		padding-left: 0;
-	}
-	.musica-atual-tela-cheia {
-		display: none;
-	}
-}
-#fechar-TC {
-	transition: none;
-	font-weight: 600;
-	border: none;
-	border-radius: 1em;
-	margin-top: 10px;
-	border-radius: 0.3em;
-	color: black;
-}
-.add-f {
-	transition: none;
-	font-weight: 600;
-	border: none;
-	border-radius: 1em;
-	transition: 0.25s;
-}
-.add-f .n-curtida {
-	color: #888888;
-	opacity: 0.4;
-}
-#estado-da-musica .add-f i {
-	font-size: 30px;
-}
+		<div class="musica-atual-tela-cheia" >
+			<div id="area-de-rolagem" >
+				<div id="rolagem" >
+					<div class="barra" ></div>
+				</div>
+				
+				<div class="card" >
+					<div class="titulo">---</div>
+				
+					<div class="img">
+						<img scr=""/>
+					</div>
+					
+                    <div id="fechar-TC"><i style="font-size: 30px;" class="bx bx-chevron-down"></i></div>
+					<div id="abrirLyric"><small>Letras</small></div>
+					<audio></audio>
+				</div>
+                    <div id="estado-da-musica">
+				  		<div class="add-f n-curtida"><i class="bx bxs-heart"></i></div>    
+                	</div>
+				</div>
+				
+				
+				<div id="estado" >
+					<div style="display: none;" class="aleatorio"><i class="bx bx-shuffle"></i></div>
+					<div id="anterior"><i class="bx bx-skip-previous"></i></div>
+					<div class="pp" >
+						<i class="play bx bx-play"></i>
+					</div>
+					<div id="proximo"><i class="bx bx-skip-next"></i></div>
+					<div class="loop" style="display: none;"><i class="bx bx-repeat"></i></div>
+					<div id="idD2" >
+						<div id="tempoAtual2" >00:00</div>
+						<div id="duracaoFinal2" >—</div>
+					</div>
+					<div id="duracao2" ><input id="variedade2"  class="range" type="range" min="0" max="100" value="100" step="1"  /></div>
+				<div id="container-volume2" >
+					<div id="minimo2"><i class="bx bx-volume"></i></div>
+					<input id="volume2"  class="range" type="range" min="0" max="100" value="100" step="1"  />
+					<div id="maximo2"><i class="bx bx-volume-full"></i></div>
+				</div>
+				</div>
+				
+				<div class="containerLyrics">
+					<div id="fecharLyric"><i style="font-size: 35px;" class="bx bx-chevron-left"></i> </div>
+					<div id="l-titulo"></div>
+					<div id="l-artista"></div>
+					<div class="lyrics"></div>
+				</div>
+			</div>
+		</main>
 
-.traduzir, .curtir {
-	padding: 20px 40px 20px 40px;
-	transition: none;
-	font-weight: 600;
-	background-color: blue;
-	border: none;
-	border-radius: 1em;
-	margin-top: 10px;
-	color: white;
-	cursor: pointer;
-}
-.curtir {
-	background-color: white; 
-	border: 1px solid blue; 
-	color: black;
-}
-.curtir:hover {
-	background-color: blue;
-	color: white;
-}
-.traduzir:hover, #fechar-TC:hover {
-	background-color: blue;
-	cursor: pointer;
-	opacity: 0.7;
-	color: white;
-}
-.traduzir:hover {
-	opacity: 0.7;
-	background-color: blue;
-}
+		<script src="musicas.js"></script>
+		<script src="script.js"></script>
 
+            
 
-#container-configuracao div span.opcao.opc-modo {
-	position: absolute;
-	float: none;
-	top: 10px;
-	right: 10px;
-}
-.nav a:active, .nav a:focus {
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+	</body>
+</html>
