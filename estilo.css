@@ -862,29 +862,22 @@ to {transform: translateX(0);}
 	position: absolute;
 	left: 0;
 	top: 0;
-	z-index: 9999999999999999999;
+	z-index: 99999999999999999;
 	background-color: #f6f7f8;
 	display: block;
 	width: 100%;
 	height: 100%;
 	color: black;
 	display: none;
-	/*background: transparent;*/
 	text-align: center;
-	font-weight: 400;
-	
 
 }
 
 #l-titulo, #l-artista {
 	text-transform: capitalize;
 }
-#l-artista {
-	font-weight: 400;
-}
 #l-titulo {
 	margin-top: 14px;
-	font-size: 25px;
 	font-weight: bold;
 }
 #apr-inicio img {
