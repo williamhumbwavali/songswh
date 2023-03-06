@@ -842,7 +842,7 @@ to {transform: translateX(0);}
 	/*background: rgb(192, 82, 82);*/
 	display: block;
 	width: 100%;
-	height: calc(100% - 200px);
+	height: calc(100% - 100px);
 	color: black;
 	background: #feffff;
 	text-align: center;
