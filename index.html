@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 		<meta name="description" content="Reprodutor de músicas">
 		<meta name="author"  content="William Humbwavali" >
 		<link rel="stylesheet" href="fontes/fonte.css">
 		<link rel="stylesheet" href="estilo.css">
 		
-		<title>Songswh</title>
+		<title>Songs</title>
 	</head>
 	<body>
 		
@@ -158,13 +158,13 @@
 				
 				
 				<div id="estado" >
-					<div class="aleatorio"><i class="bx bx-shuffle"></i></div>
+					<div style="display: none;" class="aleatorio"><i class="bx bx-shuffle"></i></div>
 					<div id="anterior"><i class="bx bx-skip-previous"></i></div>
 					<div class="pp" >
 						<i class="play bx bx-play"></i>
 					</div>
 					<div id="proximo"><i class="bx bx-skip-next"></i></div>
-					<div class="loop"><i class="bx bx-repeat"></i></div>
+					<div class="loop" style="display: none;"><i class="bx bx-repeat"></i></div>
 					<div id="idD2" >
 						<div id="tempoAtual2" >00:00</div>
 						<div id="duracaoFinal2" >—</div>
@@ -179,8 +179,8 @@
 				
 				<div class="containerLyrics">
 					<div id="fecharLyric"><i style="font-size: 35px;" class="bx bx-chevron-left"></i> </div>
-					<h3 id="l-titulo"></h3>
-					<h4 id="l-artista"></h4>
+					<div id="l-titulo"></div>
+					<div id="l-artista"></div>
 					<div class="lyrics"></div>
 				</div>
 			</div>
